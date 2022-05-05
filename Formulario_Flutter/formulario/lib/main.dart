@@ -95,7 +95,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 width: 130,
                 height: 50,
                 child: ElevatedButton.icon(
-                  onPressed: (){},
+                  onPressed: (){
+                    Form.of(context)?.validate();
+                  },
                   icon: Icon(Icons.save),
                   label: Text('Salvar')
                   ),
@@ -132,6 +134,11 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      validator: (text){
+        if(text == null || text.isEmpty){
+          return 'Esse campo não pode ser null';
+        }
+      },
       decoration: InputDecoration(
         labelText: label,
         hintText: hint,
