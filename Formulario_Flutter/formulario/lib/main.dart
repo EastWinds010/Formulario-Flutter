@@ -35,93 +35,85 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body:Form(
-        child: Padding(
-          padding: EdgeInsets.all(20),
-          child: Column(
-            children: [
-              CustomTextField(
-                label: 'Nome',
-                hint: 'Digite seu nome',
-                icon: Icons.person,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              CustomTextField(
-                label: 'Sobrenome',
-                hint: 'Digite seu sobrenome',
-                icon: Icons.person,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              CustomTextField(
-                label:'Telefone',
-                hint: 'Digite seu telefone',
-                icon:  Icons.phone,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              CustomTextField(
-                label: 'E-mail',
-                hint: 'Digite seu email',
-                icon: Icons.mail
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              CustomTextField(
-                label: 'Senha',
-                hint: 'Digite sua senha',
-                icon: Icons.lock
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              CustomTextField(
-                label: 'Confirme sua Senha',
-                hint: 'Confime sua senha',
-                icon: Icons.lock
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              SizedBox(
-                width: 130,
-                height: 50,
-                child: ElevatedButton.icon(
-                  onPressed: (){
-                    Form.of(context)?.validate();
-                  },
-                  icon: Icon(Icons.save),
-                  label: Text('Salvar')
-                  ),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              SizedBox(
-                width: 130,
-                height: 50,
-                child: ElevatedButton.icon(
-                  style:ElevatedButton.styleFrom(
-                    primary: Colors.red
-                  ),
-                  onPressed: (){},
-                  icon: Icon(Icons.clear),
-                  label: Text('Limpar')
-                  ),
-              )
-            ],
-          ),
+        appBar: AppBar(
+          title: Text(widget.title),
         ),
-      ) 
-    );
+        body: SingleChildScrollView(
+          child: Form(
+            child: Padding(
+              padding: EdgeInsets.all(20),
+              child: Column(
+                children: [
+                  CustomTextField(
+                    label: 'Nome',
+                    hint: 'Digite seu nome',
+                    icon: Icons.person,
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  CustomTextField(
+                    label: 'Sobrenome',
+                    hint: 'Digite seu sobrenome',
+                    icon: Icons.person,
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  CustomTextField(
+                    label: 'Telefone',
+                    hint: 'Digite seu telefone',
+                    icon: Icons.phone,
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  CustomTextField(
+                      label: 'E-mail',
+                      hint: 'Digite seu email',
+                      icon: Icons.mail),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  CustomTextField(
+                      label: 'Senha',
+                      hint: 'Digite sua senha',
+                      icon: Icons.lock),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  CustomTextField(
+                      label: 'Confirme sua Senha',
+                      hint: 'Confime sua senha',
+                      icon: Icons.lock),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  SizedBox(
+                    width: 130,
+                    height: 50,
+                    child: ElevatedButton.icon(
+                        onPressed: () {},
+                        icon: Icon(Icons.save),
+                        label: Text('Salvar')),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  SizedBox(
+                    width: 130,
+                    height: 50,
+                    child: ElevatedButton.icon(
+                        style: ElevatedButton.styleFrom(primary: Colors.red),
+                        onPressed: () {},
+                        icon: Icon(Icons.clear),
+                        label: Text('Limpar')),
+                  )
+                ],
+              ),
+            ),
+          ),
+        ));
   }
 }
 
@@ -129,24 +121,24 @@ class CustomTextField extends StatelessWidget {
   final String label;
   final IconData? icon;
   final String? hint;
-  const CustomTextField({ Key? key, required this.label, this.icon, this.hint}) : super(key: key);
+  const CustomTextField({Key? key, required this.label, this.icon, this.hint,})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      validator: (text){
-        if(text == null || text.isEmpty){
+      validator: (text) {
+        if (text == null || text.isEmpty) {
           return 'Esse campo não pode ser null';
         }
       },
       decoration: InputDecoration(
-        labelText: label,
-        hintText: hint,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(10)),
-        ),
-        prefixIcon: icon == null ? null: Icon(icon)
-      ),
+          labelText: label,
+          hintText: hint,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+          ),
+          prefixIcon: icon == null ? null : Icon(icon)),
     );
-  } 
+  }
 }
