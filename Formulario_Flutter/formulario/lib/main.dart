@@ -44,49 +44,49 @@ class _MyHomePageState extends State<MyHomePage> {
               padding: EdgeInsets.all(20),
               child: Column(
                 children: [
-                  CustomTextField(
+                  const CustomTextField(
                     label: 'Nome',
                     hint: 'Digite seu nome',
                     icon: Icons.person,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
-                  CustomTextField(
+                  const CustomTextField(
                     label: 'Sobrenome',
                     hint: 'Digite seu sobrenome',
                     icon: Icons.person,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
-                  CustomTextField(
+                  const CustomTextField(
                     label: 'Telefone',
                     hint: 'Digite seu telefone',
                     icon: Icons.phone,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
-                  CustomTextField(
+                  const CustomTextField(
                       label: 'E-mail',
                       hint: 'Digite seu email',
                       icon: Icons.mail),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
-                  CustomTextField(
+                  const CustomTextField(
                       label: 'Senha',
                       hint: 'Digite sua senha',
                       icon: Icons.lock),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
-                  CustomTextField(
+                  const CustomTextField(
                       label: 'Confirme sua Senha',
                       hint: 'Confime sua senha',
                       icon: Icons.lock),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   SizedBox(
@@ -121,8 +121,12 @@ class CustomTextField extends StatelessWidget {
   final String label;
   final IconData? icon;
   final String? hint;
-  const CustomTextField({Key? key, required this.label, this.icon, this.hint,})
-      : super(key: key);
+  const CustomTextField({
+    Key? key,
+    required this.label,
+    this.icon,
+    this.hint,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
